@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf and Stimulus.js integrated</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+
+</head>
+<body>
+<p th:text="'Hello, ' + ${name} + '!'"></p>
+
+<div data-controller="index">
+    <input data-action="keyup->index#act" data-target="index.source" type="text"/>
+    <br/>
+    <div data-target="index.name"></div>
+</div>
+
+<script src="application.js"></script>
+</body>
+</html>
