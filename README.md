@@ -1,7 +1,7 @@
 # Thymeleaf with stimulus.js
 
-Example application with Spring Boot, Thymeleaf and Stimulus.js.
+Example application Thymeleaf and Stimulus.js are used together.
 
-No build system is used.
+No js build system (i.e. webpack) is used.
 
 Start the application and navigate to localhost:8080
