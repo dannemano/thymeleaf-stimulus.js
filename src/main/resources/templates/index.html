@@ -1,19 +1,39 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Thymeleaf and Stimulus.js integrated</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
 
 </head>
-<body>
-<p th:text="'Hello, ' + ${name} + '!'"></p>
-
-<div data-controller="index">
-    <input data-action="keyup->index#act" data-target="index.source" type="text"/>
-    <br/>
-    <div data-target="index.name"></div>
+<body class="container">
+<div class="row justify-content-center">
+<div class="col-md-auto">
+    <p th:text="'Hello, ' + ${name} + '!!'"></p>
 </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-auto" data-controller="index" >
+        <input data-action="keyup->index#act" data-target="index.source" type="text"/>
+        <br/>
+        <div data-target="index.name"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+    <form action="#" th:action="@{/save}" method="post" th:object="${mymodel}">
+        <select class="form-group" multiple name="data" th:field="*{data}">
+            <option th:each="food : ${foods}" th:text="${food}" th:value="${food}"></option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+</div>
+
 
 <script src="application.js"></script>
 </body>
